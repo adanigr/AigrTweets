@@ -16,6 +16,8 @@ class WelcomeViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var loginButton: PMSuperButton!
+    
+    var newLayer = AVPlayerLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,10 @@ class WelcomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        newLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    }
+    
     // MARK: - Private Methods
     private func setupUI(){
         loginButton.layer.cornerRadius = 25
@@ -42,8 +48,9 @@ class WelcomeViewController: UIViewController {
         let path = URL(fileURLWithPath: Bundle.main.path(forResource: "Octagon", ofType: "mp4")!)
         let player = AVPlayer(url: path)
         
-        let newLayer = AVPlayerLayer(player: player)
+        newLayer = AVPlayerLayer(player: player)
         newLayer.frame = self.videoView.frame
+        //newLayer.frame = self.videoView.bounds
         self.videoView.layer.addSublayer(newLayer)
         newLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         

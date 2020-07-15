@@ -96,14 +96,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="FZr-Ws-Lq9" firstAttribute="leading" secondItem="3ta-uZ-0b7" secondAttribute="leading" id="4dy-sF-Bt8"/>
+                            <constraint firstItem="iJu-pr-niy" firstAttribute="centerY" secondItem="WQA-Jr-z6I" secondAttribute="centerY" id="4rX-fV-YiC"/>
                             <constraint firstItem="3ta-uZ-0b7" firstAttribute="trailing" secondItem="FZr-Ws-Lq9" secondAttribute="trailing" id="9DY-Sj-BDI"/>
                             <constraint firstItem="iJu-pr-niy" firstAttribute="trailing" secondItem="3ta-uZ-0b7" secondAttribute="trailing" id="B4h-pM-5kr"/>
                             <constraint firstItem="iJu-pr-niy" firstAttribute="top" secondItem="WQA-Jr-z6I" secondAttribute="top" id="MRh-mJ-I6Z"/>
+                            <constraint firstItem="FZr-Ws-Lq9" firstAttribute="centerY" secondItem="WQA-Jr-z6I" secondAttribute="centerY" id="VZn-hO-xdc"/>
                             <constraint firstItem="iJu-pr-niy" firstAttribute="leading" secondItem="3ta-uZ-0b7" secondAttribute="leading" id="Wpg-Wt-Dha"/>
+                            <constraint firstItem="FZr-Ws-Lq9" firstAttribute="centerX" secondItem="WQA-Jr-z6I" secondAttribute="centerX" id="XRI-KC-oOt"/>
                             <constraint firstItem="fRR-fx-7LC" firstAttribute="bottom" secondItem="FZr-Ws-Lq9" secondAttribute="bottom" id="bFv-C2-oBu"/>
                             <constraint firstItem="fRR-fx-7LC" firstAttribute="top" secondItem="WQA-Jr-z6I" secondAttribute="top" id="bTU-dB-SYu"/>
                             <constraint firstAttribute="bottom" secondItem="fRR-fx-7LC" secondAttribute="bottom" id="cvI-RO-Ms9"/>
                             <constraint firstItem="FZr-Ws-Lq9" firstAttribute="top" secondItem="fRR-fx-7LC" secondAttribute="top" id="gPN-kg-Gjc"/>
+                            <constraint firstItem="iJu-pr-niy" firstAttribute="centerX" secondItem="WQA-Jr-z6I" secondAttribute="centerX" id="hZs-bw-84r"/>
                             <constraint firstAttribute="trailing" secondItem="fRR-fx-7LC" secondAttribute="trailing" id="qsS-es-fKw"/>
                             <constraint firstItem="fRR-fx-7LC" firstAttribute="leading" secondItem="3ta-uZ-0b7" secondAttribute="leading" id="quN-1Q-mJH"/>
                             <constraint firstAttribute="bottom" secondItem="iJu-pr-niy" secondAttribute="bottom" id="t5V-Hc-1ga"/>
@@ -137,6 +141,12 @@
                                 <rect key="frame" x="0.0" y="1" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="OFs-PJ-aSJ">
+                                <rect key="frame" x="0.0" y="731" width="414" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="vu8-9Y-GiE"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2rB-Bm-Ck4">
                                 <rect key="frame" x="20" y="168.5" width="374" height="223"/>
                                 <subviews>
@@ -216,12 +226,6 @@
                                     <constraint firstItem="bR1-FK-CSY" firstAttribute="leading" secondItem="2rB-Bm-Ck4" secondAttribute="leading" id="vLc-oG-y8y"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="OFs-PJ-aSJ">
-                                <rect key="frame" x="0.0" y="731" width="414" height="165"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="vu8-9Y-GiE"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -275,6 +279,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="gOh-As-fsx">
+                                <rect key="frame" x="0.0" y="731" width="414" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="7P9-kF-Nk4"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-P0-QrF">
                                 <rect key="frame" x="20" y="168.5" width="374" height="267"/>
                                 <subviews>
@@ -379,12 +389,6 @@
                                     <constraint firstAttribute="trailing" secondItem="P2h-36-m65" secondAttribute="trailing" id="z80-ih-bP9"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="gOh-As-fsx">
-                                <rect key="frame" x="0.0" y="731" width="414" height="165"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="7P9-kF-Nk4"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>

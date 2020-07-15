@@ -95,6 +95,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abstract-png-4" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-Nd-RdE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-tN-XgY">
+                                <rect key="frame" x="0.0" y="771" width="414" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="fe7-T3-de0"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo Tweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHa-zS-3ha">
                                 <rect key="frame" x="20" y="64" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
@@ -108,12 +114,6 @@
                                     <action selector="dismissAction" destination="9qS-da-Fck" eventType="touchUpInside" id="ZSx-Cq-T96"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-tN-XgY">
-                                <rect key="frame" x="0.0" y="771" width="414" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="fe7-T3-de0"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="d0c-Yg-fik">
                                 <rect key="frame" x="20" y="125" width="374" height="260"/>
                                 <subviews>
@@ -189,6 +189,9 @@
                                                         <real key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openPreviewVideoButtonTouchUpInside" destination="9qS-da-Fck" eventType="touchUpInside" id="VcR-tw-IXZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -260,12 +263,13 @@
                         <outlet property="postErrorLabel" destination="Flk-h9-HZk" id="zcj-cH-jdH"/>
                         <outlet property="postTextView" destination="R8U-sW-wh6" id="uRB-1c-OGB"/>
                         <outlet property="previewImageView" destination="C20-Wj-s0J" id="uGM-Fc-OlM"/>
+                        <outlet property="previewVideoButton" destination="9AX-yl-ePI" id="NRS-cc-EmV"/>
                         <outlet property="publishButton" destination="hj4-Yn-oyZ" id="umC-Zw-sbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTX-5R-ckc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="75"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="75"/>
         </scene>
     </scenes>
     <resources>

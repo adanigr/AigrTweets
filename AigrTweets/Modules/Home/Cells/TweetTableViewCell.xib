@@ -70,15 +70,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROl-hZ-L25">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROl-hZ-L25">
                                 <rect key="frame" x="0.0" y="250" width="380" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <color key="tintColor" name="GreenColor"/>
                                 <state key="normal" title="Ver Video" image="video.fill" catalog="system">
                                     <color key="titleColor" name="GreenColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="openVideoButtonTouchUpInside" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kTh-O7-YoB"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tweet del desarrolador" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avo-XA-iYq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet del desarrolador" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avo-XA-iYq">
                                 <rect key="frame" x="0.0" y="284" width="380" height="15"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -88,7 +91,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ROl-hZ-L25" secondAttribute="trailing" id="1TZ-oP-pjn"/>
                             <constraint firstAttribute="trailing" secondItem="Tmk-kI-R8h" secondAttribute="trailing" id="Ha2-8v-9hl"/>
-                            <constraint firstItem="ROl-hZ-L25" firstAttribute="centerX" secondItem="Pfm-Au-fY9" secondAttribute="centerX" id="QJM-xN-Lwm"/>
                             <constraint firstItem="avo-XA-iYq" firstAttribute="leading" secondItem="Pfm-Au-fY9" secondAttribute="leading" id="UaA-QF-dQ0"/>
                             <constraint firstItem="ROl-hZ-L25" firstAttribute="leading" secondItem="Pfm-Au-fY9" secondAttribute="leading" id="YM9-Qg-E8U"/>
                             <constraint firstAttribute="trailing" secondItem="avo-XA-iYq" secondAttribute="trailing" id="gLi-HL-wAo"/>

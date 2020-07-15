@@ -12,6 +12,8 @@ import SVProgressHUD // library to show load to user
 import NotificationBannerSwift
 import FirebaseStorage
 import Foundation
+import AVFoundation
+import AVKit
 
 class HomeViewController: UIViewController {
     //MARK: - IBOutlets
@@ -102,13 +104,15 @@ class HomeViewController: UIViewController {
                 // 2. delete cell in table view
                 self.tableView.deleteRows(at:[indexPath], with: .fade)
                 
-                if postRow.hasImage {
+                if postRow.hasImage || postRow.hasVideo {
                     // 3. delete image to storage firebase
                     // create storage reference
                     let storageReference = Storage.storage().reference()
+                    //Get object URL
+                    let storageUrl = postRow.hasImage == true ? postRow.imageUrl : postRow.videoUrl
                     
                     //Get file name
-                    let fileNameString: String = (postRow.imageUrl as NSString).lastPathComponent
+                    let fileNameString: String = (storageUrl as NSString).lastPathComponent
                     print(fileNameString)
                     let fileNameArray = fileNameString.split(separator: "?")
                     let fileName = fileNameArray[0]
@@ -258,6 +262,19 @@ extension HomeViewController: UITableViewDataSource {
         if let cell = cell as? TweetTableViewCell{
             //Config cell
             cell.setupCellWith(post: dataSource[indexPath.row])
+            
+            cell.needsToShowVideo = { url in
+                // Aquí SI deberíamos abrir un ViewController
+                let avPlayer = AVPlayer(url: url)
+                
+                let avPlayerController = AVPlayerViewController()
+                avPlayerController.player = avPlayer
+                
+                self.present(avPlayerController, animated: true) {
+                    //Reproduce video automaticamente
+                    avPlayerController.player?.play()
+                }
+            }
         }
         return cell
     }

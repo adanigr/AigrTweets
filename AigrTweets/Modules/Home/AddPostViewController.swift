@@ -23,6 +23,7 @@ class AddPostViewController: UIViewController {
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var publishButton: TransitionButton!
     @IBOutlet weak var previewImageView: UIImageView!
+    @IBOutlet weak var previewVideoButton: UIButton!
     
     // MARK: - IBOutlets Error Labels
     @IBOutlet weak var postErrorLabel: UILabel!
@@ -36,6 +37,8 @@ class AddPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //hide video button preview
+        previewVideoButton.isHidden = true
         
         //Looks for single or multiple taps.
         self.hideKeyboardWhenTappedAround()
@@ -93,7 +96,38 @@ class AddPostViewController: UIViewController {
     }
     
     @IBAction func openCameraButtonTouchUpInside(){
-        openCamera()
+        
+        let alert = UIAlertController(title: "Cámara", message: "Selecciona una opción", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Foto", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Video", style: .default, handler: { _ in
+            self.openVideoCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
+        
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func openPreviewVideoButtonTouchUpInside(){
+        
+        guard let currentVideoUrl = currentVideoUrl else {
+            return
+        }
+        
+        let avPlayer = AVPlayer(url: currentVideoUrl)
+        
+        let avPlayerController = AVPlayerViewController()
+        avPlayerController.player = avPlayer
+        
+        present(avPlayerController, animated: true) {
+            //Reproduce video automaticamente
+            avPlayerController.player?.play()
+        }
     }
     
     //MARK: - Private functions
@@ -173,16 +207,67 @@ class AddPostViewController: UIViewController {
                     folderReference.downloadURL { (url: URL?, error: Error?) in
                         print(url?.absoluteString ?? "" )
                         let downloadUrl = url?.absoluteString
-                        self.savePost(imageUrl: downloadUrl!)
+                        self.savePost(imageUrl: downloadUrl!, videoUrl: nil)
                     }
                 }
             }
         }
     }
     
-    private func savePost(imageUrl: String){
+    func uploadVideoToFirebase() {
+        // 1. Ensure the video exists
+        // 2. convert video in data
+        guard let currentVideoSavedUrl = currentVideoUrl,
+            let videoData: Data = try? Data(contentsOf: currentVideoSavedUrl) else {
+            return
+        }
+        
+        //SVProgressHUD.show()
+        
+        // 3. Settings to save the video to firebase
+        let metaDataConfig = StorageMetadata()
+        metaDataConfig.contentType = "video/MP4"
+        
+        // 4. create storage reference
+        let storage = Storage.storage()
+        
+        // 5. Create video name
+        let videoName = Int.random(in: 100...1000)
+        
+        // 6. Reference of where the photo is saved
+        let folderReference = storage.reference(withPath: "tweet-videos/\(videoName).mp4")
+        
+        // 7. Creating thread in background and uploading video to firebase
+        DispatchQueue.global(qos: .background).async {
+            folderReference.putData(videoData, metadata: metaDataConfig) { (metadata: StorageMetadata?, error: Error?) in
+                
+                //Going back to the main thread
+                DispatchQueue.main.async {
+                    //Remove loading icon
+                    //SVProgressHUD.dismiss()
+                    
+                    if let error = error {
+                        print("Error al guardar la foto en firebase")
+                        print(error)
+                        NotificationBanner(title: "Error", subtitle: error.localizedDescription, style: .danger).show()
+                        
+                        return
+                    }
+                    
+                    //Get download url
+                    folderReference.downloadURL { (url: URL?, error: Error?) in
+                        print(url?.absoluteString ?? "" )
+                        let downloadUrl = url?.absoluteString
+                        self.savePost(imageUrl: nil, videoUrl: downloadUrl!)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func savePost(imageUrl: String?, videoUrl: String?){
         //Create Request
-        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: nil, location: nil)
+        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: videoUrl, location: nil)
         
         // Call network library
         SN.post(endpoint: Endpoints.post, model: request) { (response: SNResultWithEntity<Post, ErrorResponse>) in
@@ -220,8 +305,8 @@ class AddPostViewController: UIViewController {
 extension AddPostViewController: ValidationDelegate, UITextFieldDelegate{
     func validationSuccessful() {
         print("Validation SUCCESSFUL!")
-        uploadPhotoToFirebase()
-        //savePost()
+        //uploadPhotoToFirebase()
+        uploadVideoToFirebase()
     }
     
     func validationFailed(_ errors: [(Validatable, ValidationError)]) {
@@ -246,14 +331,8 @@ extension AddPostViewController: UIImagePickerControllerDelegate,  UINavigationC
         
         //Capture video url
         if info.keys.contains(.mediaURL), let recordedVideoUrl = (info[.mediaURL] as? URL)?.absoluteURL {
-            let avPlayer = AVPlayer(url: recordedVideoUrl)
-            
-            let avPlayerController = AVPlayerViewController()
-            avPlayerController.player = avPlayer
-            
-            present(avPlayerController, animated: true) {
-                avPlayerController.player?.play()
-            }
+            self.previewVideoButton.isHidden = false
+            currentVideoUrl = recordedVideoUrl
         }
     }
 }

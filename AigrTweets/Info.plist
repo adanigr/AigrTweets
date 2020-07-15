@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Usaremos la cámara para publicar tu Tweet.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Usaremos tu microfono para grabar el video de tu Tweet.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
@@ -31,6 +35,9 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -39,11 +46,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>NSCameraUsageDescription</key>
-    <string>Usaremos la cámara para publicar tu Tweet.</string>
-    
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Usaremos tu microfono para grabar el video de tu Tweet.</string>
 </dict>
 </plist>
