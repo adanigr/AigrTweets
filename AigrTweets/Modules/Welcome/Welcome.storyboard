@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ITB-Nd-Mya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ITB-Nd-Mya">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +40,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIZ-ya-4p8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIZ-ya-4p8">
                                         <rect key="frame" x="50" y="791" width="314" height="30"/>
                                         <state key="normal" title="Registro">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +49,7 @@
                                             <segue destination="z6l-XX-Yc1" kind="show" id="Dpc-To-2Ac"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-mz-fby" customClass="PMSuperButton" customModule="PMSuperButton">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-mz-fby" customClass="PMSuperButton" customModule="PMSuperButton">
                                         <rect key="frame" x="50" y="705" width="314" height="57"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -93,7 +94,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3ta-uZ-0b7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FZr-Ws-Lq9" firstAttribute="leading" secondItem="3ta-uZ-0b7" secondAttribute="leading" id="4dy-sF-Bt8"/>
                             <constraint firstItem="iJu-pr-niy" firstAttribute="centerY" secondItem="WQA-Jr-z6I" secondAttribute="centerY" id="4rX-fV-YiC"/>
@@ -112,7 +114,6 @@
                             <constraint firstItem="fRR-fx-7LC" firstAttribute="leading" secondItem="3ta-uZ-0b7" secondAttribute="leading" id="quN-1Q-mJH"/>
                             <constraint firstAttribute="bottom" secondItem="iJu-pr-niy" secondAttribute="bottom" id="t5V-Hc-1ga"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3ta-uZ-0b7"/>
                     </view>
                     <navigationItem key="navigationItem" id="yx4-Cx-thN">
                         <nil key="title"/>
@@ -148,7 +149,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="2rB-Bm-Ck4">
-                                <rect key="frame" x="20" y="168.5" width="374" height="223"/>
+                                <rect key="frame" x="20" y="160" width="374" height="223"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo electrónico" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSd-hu-qdg" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -194,7 +195,7 @@
                                         <color key="textColor" name="DarkModeWhiteAndBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDI-9r-RKt" customClass="TransitionButton" customModule="TransitionButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDI-9r-RKt" customClass="TransitionButton" customModule="TransitionButton">
                                         <rect key="frame" x="0.0" y="166" width="374" height="57"/>
                                         <color key="backgroundColor" name="GreenColor"/>
                                         <constraints>
@@ -227,7 +228,8 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rve-00-16a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2rB-Bm-Ck4" firstAttribute="top" secondItem="rve-00-16a" secondAttribute="top" constant="20" id="HdK-xi-GCQ"/>
                             <constraint firstAttribute="bottom" secondItem="OFs-PJ-aSJ" secondAttribute="bottom" id="Ldv-0f-FBU"/>
@@ -240,7 +242,6 @@
                             <constraint firstItem="siO-SQ-h5n" firstAttribute="top" secondItem="KpH-Zq-hJP" secondAttribute="top" id="x56-5h-hHp"/>
                             <constraint firstItem="siO-SQ-h5n" firstAttribute="leading" secondItem="rve-00-16a" secondAttribute="leading" id="zjm-3a-7sX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rve-00-16a"/>
                     </view>
                     <navigationItem key="navigationItem" title="Iniciar Sesión" id="dUz-He-dig"/>
                     <connections>
@@ -286,7 +287,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-P0-QrF">
-                                <rect key="frame" x="20" y="168.5" width="374" height="267"/>
+                                <rect key="frame" x="20" y="160" width="374" height="267"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSq-na-cWP" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -354,7 +355,7 @@
                                         <color key="textColor" name="DarkModeWhiteAndBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKE-L6-eUs" customClass="TransitionButton" customModule="TransitionButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKE-L6-eUs" customClass="TransitionButton" customModule="TransitionButton">
                                         <rect key="frame" x="0.0" y="210" width="374" height="57"/>
                                         <color key="backgroundColor" name="GreenColor"/>
                                         <constraints>
@@ -390,7 +391,8 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="T6w-eA-r24"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EFq-P0-QrF" firstAttribute="top" secondItem="T6w-eA-r24" secondAttribute="top" constant="20" id="1Dk-N9-y8e"/>
                             <constraint firstItem="EFq-P0-QrF" firstAttribute="centerX" secondItem="mJw-Ig-BHx" secondAttribute="centerX" id="CvP-G7-bUG"/>
@@ -405,7 +407,6 @@
                             <constraint firstItem="T6w-eA-r24" firstAttribute="trailing" secondItem="EFq-P0-QrF" secondAttribute="trailing" constant="20" id="xvZ-HE-8pX"/>
                             <constraint firstItem="EFq-P0-QrF" firstAttribute="leading" secondItem="T6w-eA-r24" secondAttribute="leading" constant="20" id="yrM-oU-6Tp"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="T6w-eA-r24"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="hun-Lb-FUi"/>
                     <connections>
@@ -442,6 +443,32 @@
             <point key="canvasLocation" x="-1220.2898550724638" y="172.76785714285714"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="HKE-L6-eUs">
+            <size key="intrinsicContentSize" width="62" height="30"/>
+        </designable>
+        <designable name="QAC-5X-qR9">
+            <size key="intrinsicContentSize" width="185" height="29"/>
+        </designable>
+        <designable name="RYt-Hp-5kE">
+            <size key="intrinsicContentSize" width="105.5" height="28"/>
+        </designable>
+        <designable name="XDI-9r-RKt">
+            <size key="intrinsicContentSize" width="99" height="30"/>
+        </designable>
+        <designable name="mfJ-mz-fby">
+            <size key="intrinsicContentSize" width="99" height="30"/>
+        </designable>
+        <designable name="tSd-hu-qdg">
+            <size key="intrinsicContentSize" width="172" height="29"/>
+        </designable>
+        <designable name="uhz-Jc-jmG">
+            <size key="intrinsicContentSize" width="105.5" height="28"/>
+        </designable>
+        <designable name="xSq-na-cWP">
+            <size key="intrinsicContentSize" width="172" height="29"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="zgH-qK-xAh"/>
     </inferredMetricsTieBreakers>
@@ -455,5 +482,8 @@
         <namedColor name="GreenColor">
             <color red="0.62352941176470589" green="0.73725490196078436" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

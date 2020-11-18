@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     private let cellId = "TweetTableViewCell"
     private var dataSource = [Post]()
     
+    let avPlayerController = AVPlayerViewController()
+    
     //MARK: - create empty view for tableView
     fileprivate(set)lazy var emptyStateView: UIView = {
         guard let emptyView = Bundle.main.loadNibNamed("EmptyState", owner: nil, options:[:])?.first as? UIView else{
@@ -75,6 +77,14 @@ class HomeViewController: UIViewController {
                 //return
             }
         }
+    }
+    
+    @objc func didfinishPlaying(note : NSNotification)  {
+        
+        avPlayerController.dismiss(animated: true, completion: nil)
+        let alertView = UIAlertController(title: "Finished", message: "Video finished", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Okey", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
     }
     
     private func deletePostAt(indexPath: IndexPath){
@@ -256,6 +266,8 @@ extension HomeViewController: UITableViewDataSource {
         return count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
@@ -264,18 +276,51 @@ extension HomeViewController: UITableViewDataSource {
             cell.setupCellWith(post: dataSource[indexPath.row])
             
             cell.needsToShowVideo = { url in
+                
                 // Aquí SI deberíamos abrir un ViewController
                 let avPlayer = AVPlayer(url: url)
                 
-                let avPlayerController = AVPlayerViewController()
-                avPlayerController.player = avPlayer
                 
+                
+                //let avPlayerController = AVPlayerViewController()
+                self.avPlayerController.player = avPlayer
+                
+                 NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.didfinishPlaying(note:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: avPlayer.currentItem)
+                 
+                self.avPlayerController.player = avPlayer
+                 
+                self.avPlayerController.allowsPictureInPicturePlayback = true
+                 
+                self.avPlayerController.delegate = self
+                 
+                self.avPlayerController.player?.play()
+                 
+                self.present(self.avPlayerController, animated: true, completion : nil)
+                
+                /*
                 self.present(avPlayerController, animated: true) {
                     //Reproduce video automaticamente
                     avPlayerController.player?.play()
-                }
+                }*/
+                
             }
         }
         return cell
+    }
+}
+
+//MARK: - Implement AVPlayerViewControllerDelegate
+extension HomeViewController: AVPlayerViewControllerDelegate {
+    
+    func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: @escaping (Bool) -> Void) {
+        
+        let currentviewController = navigationController?.visibleViewController
+        
+        if currentviewController != playerViewController{
+            
+            currentviewController?.present(playerViewController, animated: true, completion: nil)
+            
+        }
+        
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import AVKit
 
 class TweetTableViewCell: UITableViewCell {
     //MARK; - IBOutlets
@@ -24,7 +25,20 @@ class TweetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        if #available(iOS 13.0, *) {
+            let startImage = AVPictureInPictureController.pictureInPictureButtonStartImage
+            videoButton.setImage(startImage, for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.0, *) {
+            let stopImage = AVPictureInPictureController.pictureInPictureButtonStopImage
+            videoButton.setImage(stopImage, for: .selected)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

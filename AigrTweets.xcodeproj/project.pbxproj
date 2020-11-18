@@ -37,6 +37,7 @@
 		9AABBF462497621600366BF8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AABBF452497621600366BF8 /* Colors.xcassets */; };
 		9AF02AB924ABB16A00613561 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF02AB824ABB16A00613561 /* EmptyState.xib */; };
 		9AF02ABB24AC377300613561 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF02ABA24AC377300613561 /* AddPostViewController.swift */; };
+		9AFFBD3F24C5684B00A542B6 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFFBD3E24C5684B00A542B6 /* ExternalAccessory.framework */; };
 		F7513FC70A11BED17AB974D0 /* Pods_AigrTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56BE48ECC962E06154F225C /* Pods_AigrTweets.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		9AABBF452497621600366BF8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AF02AB824ABB16A00613561 /* EmptyState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		9AF02ABA24AC377300613561 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		9AFFBD3D24C5684B00A542B6 /* AigrTweets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AigrTweets.entitlements; sourceTree = "<group>"; };
+		9AFFBD3E24C5684B00A542B6 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		BD0475FEBBFC3FEF7C536C75 /* Pods-AigrTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AigrTweets.debug.xcconfig"; path = "Target Support Files/Pods-AigrTweets/Pods-AigrTweets.debug.xcconfig"; sourceTree = "<group>"; };
 		F56BE48ECC962E06154F225C /* Pods_AigrTweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AigrTweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AFFBD3F24C5684B00A542B6 /* ExternalAccessory.framework in Frameworks */,
 				F7513FC70A11BED17AB974D0 /* Pods_AigrTweets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +124,7 @@
 		9A01F40624972E1E00FE383C /* AigrTweets */ = {
 			isa = PBXGroup;
 			children = (
+				9AFFBD3D24C5684B00A542B6 /* AigrTweets.entitlements */,
 				9A8CE47B24980F4700A33822 /* Extensions */,
 				9AABBF42249761A800366BF8 /* Resources */,
 				9A01F41C249732AC00FE383C /* Modules */,
@@ -270,6 +275,7 @@
 		F563C96855EF80B5E88B0C5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AFFBD3E24C5684B00A542B6 /* ExternalAccessory.framework */,
 				F56BE48ECC962E06154F225C /* Pods_AigrTweets.framework */,
 			);
 			name = Frameworks;
@@ -542,6 +548,7 @@
 			baseConfigurationReference = BD0475FEBBFC3FEF7C536C75 /* Pods-AigrTweets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AigrTweets/AigrTweets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T5H9983H77;
 				INFOPLIST_FILE = AigrTweets/Info.plist;
@@ -562,6 +569,7 @@
 			baseConfigurationReference = 68E51F925BB4F199E6DC8C6F /* Pods-AigrTweets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AigrTweets/AigrTweets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T5H9983H77;
 				INFOPLIST_FILE = AigrTweets/Info.plist;

@@ -24,6 +24,10 @@
 	<string>Usaremos la cámara para publicar tu Tweet.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Usaremos tu microfono para grabar el video de tu Tweet.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
